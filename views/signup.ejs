@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="/stylee.css">
+</head>
+<body>
+    
+    <div class="form-container">
+        <h2> signup </h2>
+        <form action="/signup" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="username" placeholder="Enter your username" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="pass" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="submit-btn">signup</button>
+        </form>
+        <p>already have account? <a href="/">Login</a></p>
+    </div>
+
+</body>
+</html>
