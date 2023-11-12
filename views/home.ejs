@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,5 +12,240 @@
         <p><a href="/logout">Logout</a></p>
     </div>
 
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trang web của tôi</title>
+    <link rel="stylesheet" href="/stylee.css">
+    <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <div class="container-1">
+        <div class="sidebar">
+            <div class="logo-edit">
+                <img src="">
+                <p>BỆNH VIỆN HẢI CHÂU</p>
+            </div>
+            <ul class="list-unstyled">
+                <div class="section">NAVIGATION</div>
+                <li><a href="index.html"><i class='bx bx-list-ul'></i>Danh sách yêu
+                        cầu</a></li>
+                <li><a href="index.html" style="color: rgb(30, 233, 16);"><i class="ri-file-list-line"></i>Quản lý thiết bị</a></li>
+                <li><a href="index.html"><i class='bx bxs-add-to-queue'></i>Xử lý nhập</a></li>
+                <li><a href=""><i class="ri-file-reduce-fill"></i>Xử lý xuất</a></li>
+                <li><a href=""><i class="ri-bar-chart-box-fill"></i>Thống kê</a></li>
+                <li><a href="#"><i class='bx bx-cog'></i>Cài đặt</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="header">
+                <div class="search-header">
+                    <div class="input-search">
+                        <div class="input-group">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-success" type="submit" onclick="">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="filter-header"><i class='bx bx-filter-alt'></i>Lọc</button>
+                </div>
+                <div class="main">
+                    <a href="#" class="notification"><i class='bx bxs-bell-ring'></i></a>
+                    <div class="account-user">
+                        <img src="img/person.png" alt="" class="">
+                        <a href="#"></i><%= sess.account %></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-list">
+
+                <div class="filter border  p-3 w-100" id="div-filter" style="display: none;  background-color: rgb(47, 68, 83);">
+                    <form>
+                        <div class="form-group row ">
+                            <label for="inputNhaCungCap" class="col-sm-2 col-form-label" style="padding-left: 35px; color: white;">Nhà Cung Cấp:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control form-control-lg" id="inputNhaCungCap">
+                                    <option value="">--Nhà Cung Cấp--</option>
+                                    <!-- Thêm các option khác tại đây -->
+                                </select>
+                            </div>
+                            <label for="inputTrangThai" class="col-sm-2 col-form-label" style="padding-left: 35px;color: white;">Trạng Thái:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control form-control-lg" id="inputTrangThai">
+                                    <option value="">--Trạng Thái--</option>
+                                    <option value="-1">Hỏng</option>
+                                    <option value="0">Bình thường</option>
+                                    <option value="1">Đang bảo trì</option>
+                                    <!-- Thêm các option khác tại đây -->
+                                </select>
+                            </div>
+                        </div>
+                    
+                        <div class="form-group row ">
+                            <label class="col-sm-2 col-form-label" for="inputSoLuong" style="padding-left: 35px;color: white;">Số Lượng:</label>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                      <input type="number" class="form-control" id="inputSoLuong1" placeholder="ÍT nhất">
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <input type="number" class="form-control" id="inputSoLuong2" placeholder="Nhiều nhất">
+                                    </div>
+                                  </div>
+                                  
+                            </div>
+                            <label class="col-sm-2 col-form-label" for="inputKhoanThoiGian" style="padding-left: 35px;color: white;">Thời gian:</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control" id="inputNgayBatDau">
+                                <input type="date" class="form-control ngay-ket-thuc" id="inputNgayKetThuc">
+                            </div>
+                        </div>
+                        <!-- Thêm các trường nhập liệu khác tại đây -->
+                        
+                        <div class="form-group row">
+                            <div style="align-items: right; text-align: right;">
+                                <button type="submit" class="btn btn-warning btn-lg" id="btn-refesh" onclick="">Làm mới</button>
+                                <button type="button" class="btn btn-primary  btn-lg mr-2" onclick="">Tìm kiếm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+
+                <div class="border p-3 w-100">
+                    <form action="" method="post" id="form-1">
+                        <div class="row">
+				
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="loaiThietBi">Loại thiết bị</label> 
+                                    <select id="loaiThietBi" name="loaiThietBi" class="form-control form-control-lg">
+                                    </select>
+                                      <span class="form-message"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="trangThai">Trạng thái</label> 
+                                    <select id="trangThai" name="trangThai" class="form-control form-control-lg">
+                                        <option value="" style="padding-left: 35px;">--Chọn trạng thái--</option>
+                                        <option value="1">Đang sử dụng</option>
+                                        <option value="0">Hỏng</option>
+                                        <option value="-1">Đang sửa chửa</option>
+                                    </select>
+                                        <span class="form-message"></span>
+                                </div>
+                            </div>
+            
+                        </div>
+                         <div class="row">
+                            
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="">Mã thiết bị</label> 
+                                    <input id="" name="" type="text" class="form-control form-control-lg">
+                                        <span class="form-message"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="amount">Số lượng</label> 
+                                    <input min="1" id="soLuong" name="soLuong" type="number" class="form-control form-control-lg">
+                                        <span class="form-message"></span>
+                                </div>
+                            </div>
+                            
+                        </div>
+            
+                         <div class="row">
+                            
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="tenThietBi">Tên thiết bị</label>
+                                    <input id="tenThietBi" name="tenThietBi" type="text" class="form-control form-control-lg">
+                                        <span class="form-message"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="donVi">Đơn vị</label> 
+                                    <input id="donVi" name="donVi" type="text" class="form-control form-control-lg">
+                                        <span class="form-message"></span>
+                                </div>
+                            </div>
+            
+                        </div> 
+                        
+                        <div class="row">
+                            
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="tenNSX">Nhà sản xuất</label> 
+                                    <input id="tenNSX" name="tenNSX" type="text" class="form-control form-control-lg">
+                                      <span class="form-message"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="NCC">Nhà cung cấp</label> 
+                                    <select id="NCC" name="maNCC" class="form-control form-control-lg">
+                                    </select>
+                                      <span class="form-message"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="hanSD">Hạn sử dụng</label>
+                                    <input id="hanSD" name="hanSD"  type="datetime-local" class="form-control form-control-lg">
+                                    <span class="form-message"></span>
+                                </div>
+                            </div>
+            
+                        </div>
+                        <div class="form-group row">
+                            <div style="align-items: right; text-align: right;">
+                                <button type="submit" class="btn btn-primary btn-lg mr-2" style="display: none;" id="btn-update">Update</button>
+                                <button type="submit" class="btn btn-primary btn-lg mr-2" id="btn-add">Thêm</button>
+                                <button onclick="" type="reset" class="btn btn-secondary btn-lg" id="btn-cancel">Hủy</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive w-100">
+                    <table id="tableThietBi" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Mã thiết bị</th>
+                                <th>Tên thiết bị</th>
+                                <th>Loại thiết bị</th>
+                                <th>Số Lượng</th>
+                                <th>Đơn vị</th>
+                                <th>Nhà sản xuất</th>
+                                <th>Trạng thái</th>
+                                <th>Hạn SD</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyTable">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
